@@ -18,6 +18,42 @@ and `maxit` is the maximum number of iterations to perform before stopping incas
 
 ## Examples
 
+Using an example from Numerical Methods for Engineers 7th Edition (Steven Chapra, Raymond Canale):
+
+![](https://github.com/go4ino/R_PDE_Liebmanns_function/blob/main/29.4%20copy.png)
+
+29.2 Use Liebmann’s method to solve for the temperature of the square heated plate in Fig. 29.4, but with the upper boundary condition increased to 120C and the left boundary decreased to 60C. Use a relaxation factor of 1.2 and iterate to epsilon = 1%
+
+```R
+matty <- matrix(c(0,0,0,
+              0,0,0,
+              0,0,0), byrow = TRUE, ncol = 3 , nrow = 3)
+
+bcon <- c(0, 120, 60, 50)
+
+
+libm_fixed_bound(A = matty, bcon, relax_fac =  1.2)
+```
+
+Output:
+
+```R
+> libm_fixed_bound(A = matty, bcon, relax_fac =  1.2)
+[[1]]
+     [,1]      [,2]      [,3]      [,4] [,5]
+[1,]   60 120.00000 120.00000 120.00000   50
+[2,]   60  80.81059  83.86980  77.16991   50
+[3,]   60  59.01266  57.52313  54.75132   50
+[4,]   60  37.87162  32.42830  34.29436   50
+[5,]   60   0.00000   0.00000   0.00000   50
+
+[[2]]
+[1] 0.00217878
+
+[[3]]
+[1] 5
+```
+Hella
 
 # Liscence 
 
